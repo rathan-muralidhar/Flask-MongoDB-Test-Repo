@@ -7,5 +7,8 @@ COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
 #Copy all files from cur dir to new work dir
+
+EXPOSE 5000
+
 CMD ["python3","app.py"]
 #run command 
