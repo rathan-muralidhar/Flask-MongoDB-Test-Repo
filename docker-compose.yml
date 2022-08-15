@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    build: ./Web
+    ports: 
+      - "5000:5000"
+    links:
+      - db #Web is dependent on db
+  db:
+    image: mongo:latest
+    hostname: test_mongodb
+    command: mongod --port 27017
+    # environment:
+    #   #- MONGO_INITDB_DATABASE=staff_db
+    #   - MONGO_INITDB_ROOT_USERNAME=admin
+    #   - MONGO_INITDB_ROOT_PASSWORD=password
+    #volumes:
+      #- ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
+    ports:
+      - 27017:27017
+    
